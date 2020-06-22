@@ -1,1 +1,69 @@
-Placeholder
+C128 Flat Roms.
+
+U32 Contains 64 Mode Basic and Kernal, so we can hold 4 total sets on a 27512 with no board mods.
+U35 Contains 128 Mode Kernal, so It can contain 4, but I only chose 2 (Original And Jiffy Dos.)
+
+For U32 make a bin file using the following command in a dos prompt.
+
+copy /b basic.bin+kernal0.bin+basic.bin+kernal1.bin+basic.bin+kernal2.bin+basic.bin+kernal3.bin new-u32.bin
+
+Basic.bin is just 64's basic rom each time, and kernal could be whatever ones you want. I left stock kernal as the first one.
+
+For U35, for 2 Kernals you can use a 27256, or do what I did and just double up for a 27512 (I have a bunch of 27512 eproms..)
+
+copy /b kernal128.bin+jiffy128.bin+kernal128.bin+jiffy128.bin+kernal128.bin+jiffy128.bin+kernal128.bin+jiffy128.bin new-u35.bin
+
+
+Burn your new roms, then we need to modify them before you install.
+
+For U35 bend up pin 27. All other pins go in the socket.
+
+For U32 bend up pins 1 and 27. All other pins go in the socket.
+
+For mounting my promicro, I used some double sided tape to the right of u55, right above C67.
+The Right hand side of C67 is +5, and the left side in GND.. Verify with your meter.
+
+Wiring..
+
+I prefer to use 30 gauge kynar wire, I've been using it for decades, so I'm used to it. It also allows you to run the wires under
+other components.
+
+For U35, connect pin 27 to pin 9 of the pro mini.
+
+For U32, connect pin 27 to pin 6 of the pro mini.
+         connect pin 1 to pin 5 of the pro mini.
+		 
+		 
+Now for the other signals.
+
+Reset can be found on pins 2 or 3 on U63, which is the chip closest to the user port.
+U63 (7406) Pin 2 to pin 7 of the pro mini.
+
+Restore key..
+This is available 2 places.
+U16 pin 9, this is next to the 8502 cpu, or the right hand side of r9, located under the z80 cpu.
+
+Connect to pin 8 of the pro mini.
+
+EXROM
+
+The exrom goes to the mmu and pla, so I'm tapping in to the via right next to pin 12 of the pla.
+Connect to pin 3 of the pro mini.
+
+
+LED.
+
+I'm using a 220uf resistor inline with pin 4 of the pro mini.
+This goes to either side of the 3 pin female header. 
+There are 2 gnd pins available on the pro mini, or use any gnd from the motherboard.
+
+
+Arduino Power.
+
+Looking at c67, the right plane is +5v, and the left side is GND. Just attach to the Via's
+
+For More info see 
+
+https://imgur.com/gallery/tCfId77
+
+
