@@ -1,3 +1,9 @@
+Here's how to add a switchless multi kernal mod to your flat 128, 
+based on the C64 Kernel Switcher and Restore Key Reset/Selector By Adrian Black. 
+This requires a 5v arduino, I'm using a pro mini I had laying around. 
+The mod needed one more line defined to add the second rom chip for 128 mode.
+
+
 C128 Flat Roms.
 
 U32 Contains 64 Mode Basic and Kernal, so we can hold 4 total sets on a 27512 with no board mods.
